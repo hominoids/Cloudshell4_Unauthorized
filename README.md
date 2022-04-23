@@ -8,6 +8,7 @@ Cloudshell4 case designs for the Hard Kernel Odroid-hc4, m1, n1, n2, n2+, xu4
 License: GPLv3.
 
 Odroid-hc4 Series
+
 ![Image](Cloudshell4_Series.gif)
 
 Odroid-m1 Series
