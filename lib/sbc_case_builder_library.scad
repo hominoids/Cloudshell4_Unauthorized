@@ -2733,7 +2733,7 @@ module fan_mask(size, thick, style) {
                     translate ([size/2,size/2,-1]) cylinder(h=thick+2, d=size-74);
                     translate ([size/2,size/2,-2]) cylinder(h=thick+4, d=size-79);
                 }
-                if(size == 92) {
+                if(size > 92) {
                     difference() {
                         translate ([size/2,size/2,-1]) cylinder(h=thick+2, d=size-86);
                         translate ([size/2,size/2,-2]) cylinder(h=thick+4, d=size-92);
