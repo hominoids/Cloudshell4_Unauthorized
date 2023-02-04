@@ -1370,11 +1370,11 @@ module hd35() {
 
 
 /* 3.5" hdd to 2.5" hdd holder */
-module hdd35_25holder(length) {
+module hdd35_25holder(length,width=101.6) {
     wallthick = 3;
     floorthick = 2;
     hd35_x = length;                    // 145mm for 3.5" drive
-    hd35_y = 101.6;
+    hd35_y = width;
     hd35_z = 12;
     hd25_x = 100;
     hd25_y = 69.85;
@@ -1400,7 +1400,7 @@ module hdd35_25holder(length) {
                 
                 // bottom vents
                 for ( r=[15:40:hd35_x-40]) {
-                    for (c=[25:4:75]) {
+                    for (c=[hd35_y-76:4:75]) {
                         translate ([r,c,-adjust]) cube([35,2,wallthick+(adjust*2)]);
                     }
                 }       
@@ -3694,11 +3694,11 @@ module h3_port_extender(style, mask = false) {
         }
         else {
             // gpio 24 pin front position
-            color("silver") translate([1.6, 188.5, 84]) rotate([90, 0, 270]) import("stl/h3_port_extender.stl");
-//            color("dimgrey") translate([-3, 15.75, 0.25]) rotate([90, 180, 180]) import("stl/header_f_2x12_90.stl");
+            color("silver") translate([1.6, 188.5, 84]) rotate([90, 0, 270]) import("h3_port_extender.stl");
+//            color("dimgrey") translate([-3, 15.75, 0.25]) rotate([90, 180, 180]) import("header_f_2x12_90.stl");
             translate([0, 2, 8.25]) rotate([0, 180, 0]) header_f(12,8);
             translate([-2.54, 2, 8.25]) rotate([0, 180, 0]) header_f(12,8);
-            color("dimgrey") translate([-2.5, 0, 29.5]) rotate([270, 0, 90]) import("stl/header_2x2_90.stl");
+            color("dimgrey") translate([-2.5, 0, 29.5]) rotate([270, 0, 90]) import("header_2x2_90.stl");
         }
     }
     if(style == "remote") {
@@ -3711,9 +3711,9 @@ module h3_port_extender(style, mask = false) {
         }
         else {
             // gpio 24 pin front position
-            color("silver") translate([1.6, 188.5, 84]) rotate([90, 0, 270]) import("stl/h3_port_extender.stl");
-            color("dimgrey") translate([-2.5, 0, 29.5]) rotate([270, 0, 90]) import("stl/header_2x2_90.stl");
-            color("dimgrey")translate([9,-.5,12.75]) rotate([0,270,90]) import("stl/header_encl_2x5_90.stl");
+            color("silver") translate([1.6, 188.5, 84]) rotate([90, 0, 270]) import("h3_port_extender.stl");
+            color("dimgrey") translate([-2.5, 0, 29.5]) rotate([270, 0, 90]) import("header_2x2_90.stl");
+            color("dimgrey")translate([9,-.5,12.75]) rotate([0,270,90]) import("header_encl_2x5_90.stl");
             translate([2, 2, 14.08]) rotate([0, 90, 0]) header(12);
             translate([2, 2, 11.54]) rotate([0, 90, 0]) header(12);
         }
