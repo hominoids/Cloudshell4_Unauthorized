@@ -324,7 +324,32 @@ if (view == "model") {
             // lower 2.5 hdd
             color("white",1) translate([sidethick+100,10,3]) rotate([0,0,90]) hdd35_25holder(173);
         }
-        else {
+        if(sbc_model == "h3"  || sbc_model == "h2") {
+            translate([sidethick+110,129,60]) rotate([0,0,180]) sbc(sbc_model);
+            color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
+                linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3_MiniXL.dxf");
+            color("grey",.8) translate([110.5+sidethick,0,0]) rotate([90,0,90]) 
+                linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3_MiniXL.dxf");
+            color("grey",.6) translate([110+(sidethick+.5),130,51]) rotate([90,0,180]) 
+                cs4_io(sbc_model, case_style);
+            color("lightgrey",.6) translate([sidethick-.5,125.25,56.25]) cs4_deck(sbc_model, case_style);
+            color("lightgrey",.6) translate([sidethick,203.5,10.75]) rotate([90,0,0]) 
+                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_h3_MiniXL.dxf");
+            color("lightgrey",.6) translate([sidethick-.5,5,102]) cs4_top(sbc_model, case_style);
+            color("lightgrey",.7) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model, case_style);
+            // bottom
+            color("lightgrey",1) translate([sidethick+110,10,0]) rotate([0,0,90]) hdd35_25holder(188,111);
+            if(h3_port_extender == "remote") {
+                translate([75,15,63]) rotate([0,0,90]) h3_port_extender("remote");
+                translate([75,15,63]) rotate([0,0,90]) h3_port_extender_holder("both");
+                }
+            if(h3_power_button == true) {
+                translate([23,19.5,105]) hk_pwr_button();
+            }
+            // lower 3.5 hdd
+            translate([sidethick+100,10,17.5]) rotate([0,0,90]) hd35();
+        }
+        if(sbc_model != "h3"  && sbc_model != "h2" && sbc_model != "m1") {
             translate([sidethick+4.5,114,84]) rotate([180,0,0]) sbc(sbc_model);       
             color("white",.1) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_MiniXL.dxf");
@@ -379,7 +404,7 @@ if (view == "model") {
             color("lightgrey",.6) translate([sidethick-.5,5,149]) cs4_top(sbc_model, case_style);
             color("lightgrey",.7) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model, case_style);
             // bottom
-            color("lightgrey",1) translate([sidethick+110,10,3]) rotate([0,0,90]) hdd35_25holder(188,111);
+            color("lightgrey",1) translate([sidethick+110,10,0]) rotate([0,0,90]) hdd35_25holder(188,111);
             if(h3_port_extender == "remote") {
                 translate([75,15,110]) rotate([0,0,90]) h3_port_extender("remote");
                 translate([75,15,110]) rotate([0,0,90]) h3_port_extender_holder("both");
@@ -913,7 +938,7 @@ module cs4_top(sbc_model, style) {
     if(sbc_model == "h3"  || sbc_model == "h2") {
         difference() {
             union() {
-                if(case_style == "Cloudshell4") {
+                if(case_style == "Cloudshell4" || case_style == "Cloudshell4-MiniXL") {
                     linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Top_h3.dxf");
                 }
             }
@@ -1118,7 +1143,7 @@ module cs4_deck(sbc_model,mini) {
             }
         }   
         if(sbc_model == "h3"  || sbc_model == "h2") {
-            if(case_style == "Cloudshell4") {
+            if(case_style == "Cloudshell4" || case_style == "Cloudshell4-MiniXL") {
                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearDeck_h3.dxf");    
             }
         }            
@@ -1365,13 +1390,22 @@ module cs4_front(sbc_model,mini) {
             }
         }
         if(sbc_model == "h3" || sbc_model == "h2") {
-            difference() {
-                if(case_style == "Cloudshell4") {
+            if(case_style == "Cloudshell4") {
+                difference() {
                     linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_h3.dxf");
+                    // front port extender opening
+                    if(h3_port_extender == "remote") {
+                        translate([72.5,105,-9]) rotate([0,90,90]) h3_port_extender("remote",true);
+                    }
                 }
-                // front port extender opening
-                if(h3_port_extender == "remote") {
-                    translate([72.5,105,-9]) rotate([0,90,90]) h3_port_extender("remote",true);
+            }
+            if(case_style == "Cloudshell4-MiniXL") {
+                difference() {
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_h3_MiniXL.dxf");
+                    // front port extender opening
+                    if(h3_port_extender == "remote") {
+                        translate([72.5,58,-9]) rotate([0,90,90]) h3_port_extender("remote",true);
+                    }
                 }
             }
         }            
