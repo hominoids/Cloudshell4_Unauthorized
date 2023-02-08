@@ -688,9 +688,6 @@ if (view == "part") {
                 linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
             }            
         }
-        
-        
-        
         if(individual_part == "key") {
             linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Key_Mini.dxf");
         }
@@ -700,7 +697,7 @@ if (view == "part") {
         }
     }
     if(case_style == "Cloudshell4-MiniXL") {
-        if(sbc_model == "n2+"  || sbc_model == "n2" || sbc_model == "m1") {
+        if(sbc_model == "n2+" || sbc_model == "n2" || sbc_model == "m1") {
             if(individual_part == "top") {
                 translate([0,0,0]) cs4_top(sbc_model,case_style);
             }
@@ -708,12 +705,12 @@ if (view == "part") {
                 cs4_front(sbc_model,case_style);
             }
         }
-        if(sbc_model != "n2+"  && sbc_model != "n2" && sbc_model != "m1" && sbc_model != "h3" && sbc_model != "h2") {
+        if(sbc_model != "n2+"  && sbc_model != "n2" && sbc_model != "m1") {
             if(individual_part == "top") {
                 translate([0,110,0]) rotate([180,0,0]) cs4_top(sbc_model,case_style);
             }
             if(individual_part == "front") {
-                translate([100.95,0,0]) rotate([0,180,0]) cs4_front(sbc_model,case_style);    
+                cs4_front(sbc_model,case_style);    
             }
         }
         if(individual_part == "io_panel") {
@@ -739,7 +736,7 @@ if (view == "part") {
         if(individual_part == "rear" && back_fan == "dual 40mm" && sbc_model == "h3" || sbc_model == "h2") {
             linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_h3_MiniXL.dxf");
         }
-        else {
+        if(individual_part == "rear" && back_fan == "40mm" && sbc_model == "h3" || sbc_model == "h2") {
             linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_h3_MiniXL.dxf");
         }
         if(individual_part == "rear" && sbc_model != "h3" && sbc_model != "h2") {
