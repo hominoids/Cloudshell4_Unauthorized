@@ -27,7 +27,7 @@
         "Odroid-H3_Cloudshell4-MiniXL": {
             "$fn": "90",
             "adjust": "0.01",
-            "back_fan": "92mm",
+            "back_fan": "dual 40mm",
             "case_style": "Cloudshell4-MiniXL",
             "h3_port_extender": "remote",
             "h3_power_button": "true",
@@ -51,7 +51,7 @@
         "Odroid-H3_Cloudshell4-Mini": {
             "$fn": "90",
             "adjust": "0.01",
-            "back_fan": "92mm",
+            "back_fan": "dual 40mm",
             "case_style": "Cloudshell4-Mini",
             "h3_port_extender": "remote",
             "h3_power_button": "true",
