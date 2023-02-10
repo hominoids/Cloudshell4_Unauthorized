@@ -352,20 +352,20 @@ if (view == "model") {
             }
         }     
         if(sbc_model == "h3"  || sbc_model == "h2") {
-            translate([sidethick+110,129,60]) rotate([0,0,180]) sbc(sbc_model);
+            translate([sidethick+110,139,60]) rotate([0,0,180]) sbc(sbc_model);
             color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3_Mini.dxf");
             color("grey",.8) translate([110.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3_Mini.dxf");
-            color("grey",.6) translate([110+(sidethick+.5),130,51]) rotate([90,0,180]) 
+            color("grey",.6) translate([110+(sidethick+.5),140,51]) rotate([90,0,180]) 
                 cs4_io(sbc_model, case_style);
-            color("lightgrey",.6) translate([sidethick-.5,125.25,56.25]) cs4_deck(sbc_model, case_style);
+            color("lightgrey",.6) translate([sidethick-.5,135.25,56.25]) cs4_deck(sbc_model, case_style);
             if(back_fan == "dual 40mm") { 
-                color("lightgrey",.6) translate([sidethick,143.5,10.75]) rotate([90,0,0]) 
+                color("lightgrey",.6) translate([sidethick,153.5,10.75]) rotate([90,0,0]) 
                     linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_h3_MiniXL.dxf");
             }
             else {
-                color("lightgrey",.6) translate([sidethick,143.5,10.75]) rotate([90,0,0]) 
+                color("lightgrey",.6) translate([sidethick,153.5,10.75]) rotate([90,0,0]) 
                     linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_h3_MiniXL.dxf");
             }
             color("lightgrey",.6) translate([sidethick-.5,5,102]) cs4_top(sbc_model, case_style);
@@ -408,12 +408,12 @@ if (view == "model") {
             color("white",1) translate([sidethick+100,10,3]) rotate([0,0,90]) hdd35_25holder(173);
         }
         if(sbc_model == "h3"  || sbc_model == "h2") {
-            translate([sidethick+110+.5,129,60]) rotate([0,0,180]) sbc(sbc_model);
+            translate([sidethick+110+.5,139,60]) rotate([0,0,180]) sbc(sbc_model);
             color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3_MiniXL.dxf");
             color("grey",.8) translate([111+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3_MiniXL.dxf");
-            color("grey",.6) translate([110+(sidethick+.5),130,51]) rotate([90,0,180]) 
+            color("grey",.6) translate([110+(sidethick+.5),140,51]) rotate([90,0,180]) 
                 cs4_io(sbc_model, case_style);
             color("lightgrey",.6) translate([sidethick-.5,125.25,56.25]) cs4_deck(sbc_model, case_style);
             if(back_fan == "dual 40mm") { 
@@ -480,12 +480,12 @@ if (view == "model") {
             color("white",1) translate([sidethick+100,10,3]) rotate([0,0,90]) hdd35_25holder(173);
         }   
         if(sbc_model == "h3"  || sbc_model == "h2") {
-            translate([sidethick+110,129,107]) rotate([0,0,180]) sbc(sbc_model);
+            translate([sidethick+110,139,107]) rotate([0,0,180]) sbc(sbc_model);
             color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3.dxf");
             color("grey",.8) translate([110.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3.dxf");
-            color("grey",.6) translate([110+(sidethick+.5),130,98]) rotate([90,0,180]) 
+            color("grey",.6) translate([110+(sidethick+.5),140,98]) rotate([90,0,180]) 
                 cs4_io(sbc_model, case_style);
             color("lightgrey",.6) translate([sidethick-.5,125.25,103.25]) cs4_deck(sbc_model, case_style);
             color("lightgrey",.6) translate([sidethick,203.5,10.75]) rotate([90,0,0]) 
@@ -1080,32 +1080,32 @@ module cs4_top(sbc_model, style) {
             }
             if(h3_standoffs == true && case_style == "Cloudshell4" || case_style == "Cloudshell4-MiniXL" 
                     || case_style == "Cloudshell4-Mini") {
-                translate([107.25,17.75,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
-                translate([5,17.75,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
-                translate([107.25,106.25,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
-                translate([5,99.25,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
+                translate([107.25,27.75,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
+                translate([5,27.75,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
+                translate([107.25,116.25,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
+                translate([5,109.25,wallthick-(wallthick+adjust)+adjust]) cylinder(d=6.25, h=wallthick+2*adjust);
             }
             if(top_fan == "40mm") {
-                translate([35.5,45,0]) fan_mask(40, wallthick, 2);
+                translate([35.5,55,0]) fan_mask(40, wallthick, 2);
                 // wire access
 //                translate([110,90,-adjust]) cylinder(d=4, h=wallthick+(adjust*2));                        
 //                translate([60,85,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
             }
             if(top_fan == "60mm") {
-                translate([26,35,0]) fan_mask(60, wallthick, 2);
+                translate([26,45,0]) fan_mask(60, wallthick, 2);
                 // wire access
-                translate([110,90,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
+                translate([110,100,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
 //                translate([60,9,-adjust]) cylinder(d=4, h=wallthick+(adjust*2));                        
             }
             if(top_fan == "80mm") {
-                translate([20.5,25,0]) fan_mask(80, wallthick, 2);
+                translate([20.5,30,0]) fan_mask(80, wallthick, 2);
                 // wire access
-                translate([110,112,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
+                translate([110,122,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
             }
              if(top_fan == "92mm") {
-                translate([9.5,25,0]) fan_mask(92, wallthick, 2);
+                translate([9.5,30,0]) fan_mask(92, wallthick, 2);
                 // wire access
-                translate([110,112,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
+                translate([110,122,-adjust]) cylinder(d=5, h=wallthick+(adjust*2));                        
             }
             if(vu5_front == true) {
                 translate([8,wallthick,-adjust]) cube([6,8,wallthick+(adjust*2)]);
@@ -1123,16 +1123,16 @@ module cs4_top(sbc_model, style) {
                     || case_style == "Cloudshell4-Mini") {
             if(h3_port_extender == "remote") {
                 difference() {
-                    translate([107.25,17.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
-                    translate([102,19.25,wallthick-2*adjust-43]) cube([12,3,25]);
+                    translate([107.25,27.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
+                    translate([102,29.25,wallthick-2*adjust-43]) cube([12,3,25]);
                 }
             }
             else {
-                translate([107.25,17.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
+                translate([107.25,27.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
             }
-            translate([5,17.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
-            translate([107.25,106.25,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
-            translate([5,99.25,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
+            translate([5,27.75,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
+            translate([107.25,116.25,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
+            translate([5,109.25,wallthick-adjust]) rotate([0,0,30]) standoff(spacer);
         }
     }
 }
