@@ -58,7 +58,7 @@
             "back_fan": "dual 40mm",
             "case_style": "Cloudshell4-Mini",
             "deck_vent": "none",
-            "front_vent": "none",
+            "front_vent": "hex vent",
             "h3_port_extender": "remote",
             "h3_power_button": "true",
             "h3_standoffs": "true",
