@@ -424,7 +424,7 @@ if (view == "model") {
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3_MiniXL.dxf");
             color("grey",.6) translate([110+(sidethick+.5),140,51]) rotate([90,0,180]) 
                 cs4_io(sbc_model, case_style);
-            color("lightgrey",.6) translate([sidethick-.5,125.25,56.25]) cs4_deck(sbc_model, case_style);
+            color("lightgrey",.6) translate([sidethick-.5,135.25,56.25]) cs4_deck(sbc_model, case_style);
             if(back_fan == "dual 40mm") { 
                 color("lightgrey",.6) translate([sidethick,203.5,10.75]) rotate([90,0,0]) 
                     linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_h3_MiniXL.dxf");
