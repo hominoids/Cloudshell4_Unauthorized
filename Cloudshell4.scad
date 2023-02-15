@@ -1506,6 +1506,9 @@ module cs4_front(sbc_model,style) {
                     // sdcard
                     translate([10.5,115.75,-1]) cube([14,2.5,5]);
                     translate([18.5,117.25,5]) sphere(d=10);
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 9, 4, 7.5, 2, "portrait");
+                    }
                 }
                 if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
                     // audio jack
@@ -1513,6 +1516,9 @@ module cs4_front(sbc_model,style) {
                     // sdcard
                     translate([10.5,75.625,-1]) cube([14,2.5,5]);
                     translate([18.5,77.125,5]) sphere(d=10);
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 5, 4, 7.5, 2, "portrait");
+                    }
                 }
                 if(case_style == "Cloudshell4-MiniXS") {
                     // audio jack
@@ -1520,6 +1526,9 @@ module cs4_front(sbc_model,style) {
                     // sdcard
                     translate([10.5,29.625,-1]) cube([14,2.5,5]);
                     translate([18.5,31.125,5]) sphere(d=10);
+                    if(front_vent == "hex vent") {
+                        translate([9,3,adjust]) vent_hex(17, 1, 4, 7.5, 2, "portrait");
+                    }
                 }
                 if(case_style == "Cloudshell4-XL") {
                     // audio jack
@@ -1527,6 +1536,9 @@ module cs4_front(sbc_model,style) {
                     // sdcard
                     translate([10.5,170.5,-1]) cube([14,2.5,5]);
                     translate([18.5,171.5,5]) sphere(d=10);
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 17, 4, 7.5, 2, "portrait");
+                    }
                 }
                 if(case_style == "Cloudshell4-XXL") {
                     // audio jack
@@ -1534,51 +1546,36 @@ module cs4_front(sbc_model,style) {
                     // sdcard
                     translate([10.5,225.75,-1]) cube([14,2.5,5]);
                     translate([18.5,227.25,5]) sphere(d=10);
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 23, 4, 7.5, 2, "portrait");
+                    }
                 }
             }
         }
-        if(sbc_model == "n2+") {
+        if(sbc_model == "n1" || sbc_model == "n2" || sbc_model == "n2+" || sbc_model == "xu4") {
             if(case_style == "Cloudshell2") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell2_Front.dxf");    
+                difference() {
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell2_Front.dxf");
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 9, 4, 7.5, 2, "portrait");
+                    }                    
+                }
             }
             if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
-               linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_Mini.dxf");  
+                difference() {
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_Mini.dxf");
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 5, 4, 7.5, 2, "portrait");
+                    }
+                }
             }
             if(case_style == "Cloudshell4") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front.dxf");    
-            }
-        }
-        if(sbc_model == "n2") {
-            if(case_style == "Cloudshell2") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell2_Front.dxf");    
-            }
-            if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
-               linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_Mini.dxf");  
-            }
-            if(case_style == "Cloudshell4") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front.dxf");    
-            }
-        }
-        if(sbc_model == "n1") {
-            if(case_style == "Cloudshell2") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell2_Front.dxf");   
-            }
-            if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
-               linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_Mini.dxf");  
-            }
-            if(case_style == "Cloudshell4") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front.dxf");
-            }
-        }            
-        if(sbc_model == "xu4") {
-            if(case_style == "Cloudshell2") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell2_Front.dxf");
-            }
-            if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
-                   linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front_Mini.dxf");  
-            }
-            if(case_style == "Cloudshell4") {
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front.dxf");
+                difference() {
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_Front.dxf");
+                    if(front_vent == "hex vent") {
+                        translate([9,10,adjust]) vent_hex(17, 9, 4, 7.5, 2, "portrait");
+                    }                    
+                }
             }
         }
         if(sbc_model == "h3" || sbc_model == "h2") {
