@@ -56,7 +56,7 @@ sbc_model = "hc4"; // ["xu4", "xu4q","n1", "n2", "n2+", "m1", "hc4", "h2", "h3"]
 // top fan mount
 top_fan =  "40mm"; // ["none","40mm","60mm","80mm","92mm","hex vent"]
 // rear 40mm, dual 40mm, 92mm fan or rear dual 80mm fans for Cloudshell4-XL
-back_fan = "92mm"; // ["40mm","dual 40mm","dual 80mm","92mm"]
+back_fan = "92mm"; // ["none","40mm","dual 40mm","dual 80mm","92mm"]
 // none, rectangle(typical 10mmx8mm), hk logo(irscale=.6, size 12mmx12mm), custom(irscale=.5, size 28mmx6.2mm)
 front_vent = "none"; // ["none","hex vent"]
 deck_vent = "none"; // ["none","hex vent"]
@@ -249,7 +249,7 @@ if (view == "platter") {
             translate([185,255,-2.5]) rotate([0,0,90]) h3_port_extender_holder("bottom",wallthick);
         }
     }
-    if((case_style == "Cloudshell4-XL" ||case_style== "Cloudshell4-XXL") && sbc_model == "m1") {
+    if((sbc_model == "m1" && case_style == "Cloudshell4-XL" || case_style== "Cloudshell4-XXL")) {
         if(case_style == "Cloudshell4-XL") {
             translate([240,195,sidethick]) rotate([180,0,0])
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_m1_XL.dxf");
@@ -326,8 +326,17 @@ if (view == "model") {
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_m1_Mini.dxf");
             color("white",.1) translate([100.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_m1_Mini.dxf");
-            color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            if(back_fan == "dual 40mm") { 
+                color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_Mini.dxf");
+            }
+            else {
+                color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            }
+
+
+
             color("white",.6) translate([sidethick-.5,126,63.5]) cs4_deck(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,4.5,92]) cs4_top(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model,case_style);
@@ -344,8 +353,14 @@ if (view == "model") {
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_Mini.dxf");
             color("white",.1) translate([100.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_Mini.dxf");
-            color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            if(back_fan == "dual 40mm") { 
+                color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_Mini.dxf");
+            }
+            else {
+                color("white",.6) translate([sidethick-.5,143.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            }
             color("white",.6) translate([sidethick-.5,110,63]) cs4_deck(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,5,92]) cs4_top(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model,case_style);
@@ -404,8 +419,14 @@ if (view == "model") {
                     import(file = "./dxf/CloudShell4_RightSide_m1_MiniXL.dxf");
             color("white",.1) translate([100.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_m1_MiniXL.dxf");
-            color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            if(back_fan == "dual 40mm") { 
+                color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_Mini.dxf");
+            }
+            else {
+                color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            }
             color("white",.6) translate([sidethick-.5,127,63.25]) cs4_deck(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,5,92]) cs4_top(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model,case_style);
@@ -456,8 +477,15 @@ if (view == "model") {
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_MiniXL.dxf");
             color("white",.1) translate([100.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_MiniXL.dxf");
-            color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            if(back_fan == "dual 40mm") { 
+                color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan40x2_Mini.dxf");
+            }
+            else {
+                color("white",.6) translate([sidethick-.5,188.5,10]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_Mini.dxf");
+            }
+
             color("white",.6) translate([sidethick-.5,111,63.25]) cs4_deck(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,5,92]) cs4_top(sbc_model,case_style);
             color("white",.6) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model,case_style);
@@ -1351,7 +1379,7 @@ module cs4_front(sbc_model,style) {
                 if(front_vent == "hex vent" && case_style == "Cloudshell4" || case_style == "Cloudshell2") {
                     translate([9.5,10,adjust]) vent_hex(17, 9, 4, 7.5, 2, "portrait");
                 }
-                if(front_vent == "hex vent" && case_style == "Cloudshell4-Mini" || case_style == "Cloudshell4-MiniXL") {
+                if(front_vent == "hex vent" && (case_style == "Cloudshell4-Mini" || case_style == "Cloudshell4-MiniXL")) {
                     translate([9.5,10,adjust]) vent_hex(17, 5, 4, 7.5, 2, "portrait");
                 }
                 // front oled opening
@@ -1510,7 +1538,7 @@ module cs4_front(sbc_model,style) {
                         translate([9,10,adjust]) vent_hex(17, 9, 4, 7.5, 2, "portrait");
                     }
                 }
-                if(case_style == "Cloudshell4-Mini" || case_style== "Cloudshell4-MiniXL") {
+                if(case_style == "Cloudshell4-Mini" || case_style == "Cloudshell4-MiniXL") {
                     // audio jack
                     translate([82.625,77.375,-1]) cylinder(d=6, h=5);
                     // sdcard
