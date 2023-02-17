@@ -28,6 +28,16 @@ Odroid-hc4 Series
 Odroid-m1 Series
 ![Image](Cloudshell4_M_Series.gif)
 
+### Cloudshell4 Series SBC Support
+
+Cloudshell2 Conversion - HC4, N2+, N2, N1, XU4
+Cloudshell4 - HC4, M1, H3, H2, N2+, N2, N1, XU4
+Cloudshell4-XL - M1
+Cloudshell4-XXL - M1
+Cloudshell4-MiniXL - HC4, M1, H3, H2, N2+, N2, N1, XU4
+Cloudshell4-Mini - HC4, M1, H3, H2, N2+, N2, N1, XU4
+CLoundshell4-MiniXS - M1, H3, H2
+
 ### Notes
 
   More information can be found at this [Hard Kernel forum thread](https://forum.odroid.com/viewtopic.php?f=206&t=40769)

@@ -1406,10 +1406,10 @@ module hdd35_25holder(length,width=101.6) {
                 }       
             }
             // 2.5 hdd bottom support
-            translate([9.4+hd25_xloc,4.07+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=4);
-            translate([86+hd25_xloc,4.07+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=4);
-            translate([86+hd25_xloc,65.79+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=4);
-            translate([9.4+hd25_xloc,65.79+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=4);
+            translate([9.4+hd25_xloc,4.07+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=2);
+            translate([86+hd25_xloc,4.07+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=2);
+            translate([86+hd25_xloc,65.79+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=2);
+            translate([9.4+hd25_xloc,65.79+hd25_yloc,floorthick-adjust]) cylinder(d=8,h=2);
         
         // side nut holder support    
         translate([16,wallthick-adjust,7]) rotate([-90,0,0]) cylinder(d=10,h=3);
