@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Cloudshell4 case design for the Hard Kernel Odroid-hc4, m1, n1, n2, n2+, xu4, h2, h2+, h3, h3+
+Cloudshell4 case designs for the Hard Kernel Odroid-hc4, m1, n1, n2, n2+, xu4, h2, h2+, h3, h3+
 
 License: GPLv3.
 
@@ -16,27 +16,39 @@ License: GPLv3.
 
 ```
 
-### Cloudshell4 Unauthorized Benefits:
+### Cloudshell4 Unauthorized Features:
 -  Multi SBC Support
 -  Dual 3.5" HD
 -  Easy 3D Printing
+-  Accessory support e.g. oled display, power button, port extender
+-  Multi panel vents
 
 Odroid-hc4 Series
 
 ![Image](Cloudshell4_Series.gif)
 
-Odroid-m1 Series
+Odroid-m Series
+![Image](Cloudshell4_M_Series.gif)
+
+Odroid-h Series
 ![Image](Cloudshell4_M_Series.gif)
 
 ### Cloudshell4 Series SBC Support
 
 Cloudshell2 Conversion - HC4, N2+, N2, N1, XU4
+
 Cloudshell4 - HC4, M1, H3, H2, N2+, N2, N1, XU4
+
 Cloudshell4-XL - M1
+
 Cloudshell4-XXL - M1
+
 Cloudshell4-MiniXL - HC4, M1, H3, H2, N2+, N2, N1, XU4
+
 Cloudshell4-Mini - HC4, M1, H3, H2, N2+, N2, N1, XU4
+
 CLoundshell4-MiniXS - M1, H3, H2
+
 
 ### Notes
 

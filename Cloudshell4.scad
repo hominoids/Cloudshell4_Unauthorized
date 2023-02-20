@@ -36,7 +36,7 @@
     20220420 Version 1.3.0  added Odroid-M1 Cloudshell4, MiniXL, Mini, MiniXS, Cloudshell4-XL Cloudshell4-XXL
                             fixed dxf MTEXT error, changed to sbc_case_builder_library.scad
                             included sbc_model_framework library, other maintenance and fixes
-    202302xx Version 2.0.0  added customizer gui, added h series cases, added individual part selection
+    20230220 Version 2.0.0  added customizer gui, added h series cases, added individual part selection
                             added top fan selection, power button and h3 port extender for h3 cloudshell4,
                             added vu7 front mount for h3, added hex vent for front, deck and top for h3 and
                             other appropriate sbc and cases.
