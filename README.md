@@ -31,7 +31,7 @@ Odroid-m Series
 ![Image](Cloudshell4_M_Series.gif)
 
 Odroid-h Series
-![Image](Cloudshell4_M_Series.gif)
+![Image](Cloudshell4_H_Series.gif)
 
 ### Cloudshell4 Series SBC Support
 
