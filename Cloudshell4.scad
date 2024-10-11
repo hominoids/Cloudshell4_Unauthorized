@@ -52,7 +52,7 @@ view = "model"; // [model, platter, part]
 individual_part = "bottom"; // [top, bottom, right, left, front, rear, deck, io_panel, accessories]
 // base case design
 case_style = "Cloudshell4"; // ["Cloudshell2", "Cloudshell4", "Cloudshell4-XL", "Cloudshell4-XXL", "Cloudshell4-Mini", "Cloudshell4-MiniXL",  "Cloudshell4-MiniXS"]
-sbc_model = "hc4"; // ["xu4", "xu4q","n1", "n2", "n2+", "m1", "hc4", "h2", "h3"]
+sbc_model = "hc4"; // ["xu4", "xu4q","n1", "n2", "n2+", "m1", "hc4", "h2", "h3", "h4+"]
 /* [Accessories] */
 // top fan mount
 top_fan =  "40mm"; // ["none","40mm","60mm","80mm","92mm","hex vent"]
@@ -465,7 +465,7 @@ if (view == "model") {
                 translate([67.225,10,43]) rotate([0,0,180]) hc4_oled();
             }
         }     
-        if(sbc_model == "h3"  || sbc_model == "h2") {
+        if(sbc_model == "h4+"  || sbc_model == "h3"  || sbc_model == "h2") {
             translate([sidethick+110,139,60]) rotate([0,0,180]) sbc(sbc_model);
             color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3_Mini.dxf");
@@ -561,7 +561,7 @@ if (view == "model") {
             // lower 3.5 hdd
             translate([sidethick+111,10,17.5]) rotate([0,0,90]) hd35();
         }
-        if(sbc_model != "h3"  && sbc_model != "h2" && sbc_model != "m1") {
+        if(sbc_model != "h2" && sbc_model != "m1") {
             translate([sidethick+4.5,114,84]) rotate([180,0,0]) sbc(sbc_model);       
             color("white",.1) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_MiniXL.dxf");
@@ -609,28 +609,39 @@ if (view == "model") {
             // bottom
             color("white",1) translate([sidethick+100,10,3]) rotate([0,0,90]) hdd35_25holder(173);
         }   
-        if(sbc_model == "h3"  || sbc_model == "h2") {
-            translate([sidethick+110,139,107]) rotate([0,0,180]) sbc(sbc_model);
+        if(sbc_model == "h4+"  || sbc_model == "h3"  || sbc_model == "h2") {
+            sbc_width = sbc_model == "h4+" ? 120 : 110;
+            translate([sidethick+sbc_width,139,107]) rotate([0,0,180]) sbc(sbc_model);
             color("grey",.8) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide_h3.dxf");
-            color("grey",.8) translate([110.5+sidethick,0,0]) rotate([90,0,90]) 
+            color("grey",.8) translate([sbc_width+.5+sidethick,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_LeftSide_h3.dxf");
-            color("grey",.6) translate([110+(sidethick+.5),140,98]) rotate([90,0,180]) 
+            color("grey",.6) translate([sbc_width+(sidethick+.5),140,98]) rotate([90,0,180]) 
                 cs4_io(sbc_model, case_style);
             color("lightgrey",.6) translate([sidethick-.5,125.25,103.25]) cs4_deck(sbc_model, case_style);
-            color("lightgrey",.6) translate([sidethick,203.5,10.75]) rotate([90,0,0]) 
-                linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_h3.dxf");
+            if(sbc_model == "h3") {
+                color("lightgrey",.6) translate([sidethick,203.5,10.75]) rotate([90,0,0]) 
+                    linear_extrude(height = wallthick) import(file = "./dxf/CloudShell4_RearFan_h3.dxf");
+            }
             color("lightgrey",.6) translate([sidethick-.5,5,149]) cs4_top(sbc_model, case_style);
             color("lightgrey",.7) translate([sidethick-.5,8,5]) rotate([90,0,0]) cs4_front(sbc_model, case_style);
             // bottom
-            color("lightgrey",1) translate([sidethick+110,10,0]) rotate([0,0,90]) hdd35_25holder(188,111);
+            color("lightgrey",1) translate([sidethick+sbc_width,10,0]) rotate([0,0,90]) hdd35_25holder(188,sbc_width+1);
             color("darkgrey",1) translate([wallthick+9.4,26.5,24]) rotate([0,0,180]) cableholder_spacer();
             color("darkgrey",1) translate([wallthick+9.4,86.5,24]) rotate([0,0,180]) cableholder_spacer();
             color("darkgrey",1) translate([wallthick+9.4,128.5,24]) rotate([0,0,180]) cableholder_spacer();
             color("darkgrey",1) translate([wallthick+9.4,26.5,67]) rotate([0,0,180]) cableholder_spacer();
             color("darkgrey",1) translate([wallthick+9.4,86.5,67]) rotate([0,0,180]) cableholder_spacer();
             color("darkgrey",1) translate([wallthick+9.4,128.5,67]) rotate([0,0,180]) cableholder_spacer();
-            if(h3_port_extender == "remote") {
+            if(sbc_model == "h4+") {
+                color("darkgrey",1) translate([sbc_width-6,26.5,24]) cableholder_spacer();
+                color("darkgrey",1) translate([sbc_width-6,86.5,24]) cableholder_spacer();
+                color("darkgrey",1) translate([sbc_width-6,128.5,24]) cableholder_spacer();
+                color("darkgrey",1) translate([sbc_width-6,26.5,67]) cableholder_spacer();
+                color("darkgrey",1) translate([sbc_width-6,86.5,67]) cableholder_spacer();
+                color("darkgrey",1) translate([sbc_width-6,128.5,67]) cableholder_spacer();
+            }
+            if(h3_port_extender == "remote" && sbc_model == "h3") {
                 translate([77.5,15,110]) rotate([0,0,90]) h3_port_extender("remote");
                 translate([77.5,15,110]) rotate([0,0,90]) h3_port_extender_holder("both",3);
                 }
@@ -642,7 +653,7 @@ if (view == "model") {
             // lower 3.5 hdd
             translate([sidethick+111,10,17.5]) rotate([0,0,90]) hd35();
         } 
-        if(sbc_model != "m1" && sbc_model != "h2" && sbc_model != "h3") {
+        if(sbc_model != "m1" && sbc_model != "h2" && sbc_model != "h3" && sbc_model != "h4+") {
             translate([sidethick+4.5,114,124]) rotate([180,0,0]) sbc(sbc_model);
             color("white",.1) translate([-.5,0,0]) rotate([90,0,90]) 
                 linear_extrude(height = sidethick) import(file = "./dxf/CloudShell4_RightSide.dxf");
@@ -658,7 +669,7 @@ if (view == "model") {
             // bottom
             color("white",1) translate([sidethick+100,10,3]) rotate([0,0,90]) hdd35_25holder(173);
         }
-        if(sbc_model != "h3" && sbc_model != "h2") {
+        if(sbc_model != "h4+" && sbc_model != "h3" && sbc_model != "h2") {
             // upper 3.5 hdd
             translate([sidethick+100,10,60.5]) rotate([0,0,90]) hd35();
             // lower 3.5 hdd
