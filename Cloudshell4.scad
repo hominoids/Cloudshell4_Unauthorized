@@ -58,10 +58,9 @@ sbc_model = "hc4"; // ["xu4", "xu4q","n1", "n2", "n2+", "m1", "hc4", "h2", "h3"]
 top_fan =  "40mm"; // ["none","40mm","60mm","80mm","92mm","hex vent"]
 // rear 40mm, dual 40mm, 92mm fan or rear dual 80mm fans for Cloudshell4-XL
 back_fan = "92mm"; // ["none","40mm","dual 40mm","dual 80mm","92mm"]
-// none, rectangle(typical 10mmx8mm), hk logo(irscale=.6, size 12mmx12mm), custom(irscale=.5, size 28mmx6.2mm)
 front_vent = "none"; // ["none","hex vent"]
 deck_vent = "none"; // ["none","hex vent"]
-
+// none, rectangle(typical 10mmx8mm), hk logo(irscale=.6, size 12mmx12mm), custom(irscale=.5, size 28mmx6.2mm)
 ir_window_style = "hk logo"; // ["none","rectangle","hk logo","custom"]
 ir_scale = .6; // [.1:.1:4]
 ir_xsize = 12; // [1:.25:50]
