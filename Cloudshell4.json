@@ -337,6 +337,32 @@
             "vu5_front": "false",
             "vu7_front": "false",
             "wallthick": "3"
+        },
+        "Odroid-H4+_Cloudshell4": {
+            "$fn": "90",
+            "adjust": "0.01",
+            "back_fan": "92mm",
+            "case_style": "Cloudshell4",
+            "deck_vent": "none",
+            "front_vent": "hex vent",
+            "h3_port_extender": "none",
+            "h3_power_button": "false",
+            "h3_standoffs": "true",
+            "individual_part": "bottom",
+            "ir_custom_file": "customart.dxf",
+            "ir_scale": "0.6",
+            "ir_window_style": "none",
+            "ir_xsize": "12",
+            "ir_ysize": "12",
+            "oled_hc4": "false",
+            "sbc_model": "h4+",
+            "sidethick": "3",
+            "spacer": "[6.25, 40, 3.4, 8.5, 4, 0, 0, 1, 0, 4.2, 4]",
+            "top_fan": "hex vent",
+            "view": "model",
+            "vu5_front": "false",
+            "vu7_front": "false",
+            "wallthick": "3"
         }
     },
     "fileFormatVersion": "1"
