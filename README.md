@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Cloudshell4 case designs for the Hard Kernel Odroid-hc4, m1, n1, n2, n2+, xu4, h2, h2+, h3, h3+
+Cloudshell4 case designs for the Hard Kernel Odroid-hc4, m1, n1, n2, n2+, xu4, h2, h2+, h3, h3+, h4, h4+, h4_ultra
 
 License: GPLv3.
 
@@ -37,7 +37,7 @@ Odroid-h Series
 
 Cloudshell2 Conversion - HC4, N2+, N2, N1, XU4
 
-Cloudshell4 - HC4, M1, H3, H2, N2+, N2, N1, XU4
+Cloudshell4 - HC4, M1, H4, H3, H2, N2+, N2, N1, XU4
 
 Cloudshell4-XL - M1
 
