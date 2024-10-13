@@ -2600,7 +2600,7 @@ module microusb_open() {
 
 
 /* fan mask to create opening */
-module fan_mask(size, thick, style) {
+/*module fan_mask(size, thick, style) {
 
     $fn=90;
     
@@ -2791,7 +2791,7 @@ module fan_mask(size, thick, style) {
             }
         }
     }
-}
+}*/
 
 /* mask module */
 module mask(loc_x,loc_y,loc_z,rotation,side,class,type,wallthick,gap,floorthick,pcb_z) {
