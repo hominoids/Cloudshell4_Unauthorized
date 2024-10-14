@@ -39,7 +39,7 @@ Cloudshell2 Conversion - HC4, N2+, N2, N1, XU4
 
 Cloudshell4 - HC4, M1, H4, H3, H2, N2+, N2, N1, XU4
 
-Cloudshell4-XL - M1
+Cloudshell4-XL - M1, H4
 
 Cloudshell4-XXL - M1
 
